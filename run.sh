@@ -1,3 +1,3 @@
-python ./src/main.py --model GB
-python ./src/main.py --model DT
-python ./src/main.py --model RF
+python ./src/main.py --model RandomForest
+python ./src/main.py --model DecisionTree
+python ./src/main.py --model GradientBoost
