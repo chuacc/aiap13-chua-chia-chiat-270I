@@ -44,5 +44,7 @@ def dataclean(df):
     # Dropped unwanted columns
     df = df.drop(["Car ID", "Color", "Failure A", "Failure B", "Failure C", "Failure D", "Failure E", "Year" ] , axis = 1)
 
-    
+    # Dropped temperature above 140
+    df.drop(df[df['Temperature'] > 140].index, inplace = True)
+
     return df
