@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+import utils
 
 
 
@@ -12,3 +13,4 @@ df = pd.read_sql_query("SELECT * from failure", con)
 con.close()
 
 
+df = dataclean(df)
