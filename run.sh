@@ -1,1 +1,1 @@
-python /src/main.py --model GB
+python ./src/main.py --model GB
