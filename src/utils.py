@@ -34,4 +34,4 @@ def dataclean(df):
     df.loc[(df.units == "°F"), 'Temperature'] = round((df.Temperature-32)*5/9,1)
     df.drop(columns=["units"], inplace=True)
     
-        return df
+    return df
