@@ -81,7 +81,7 @@ preprocessor = ColumnTransformer(
 
 pipeline = Pipeline(steps = [
                ('preprocessor', preprocessor)
-              ,('clf',model['LR'])
+              ,('clf',model[model_select])
            ])
 
 
