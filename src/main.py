@@ -25,10 +25,8 @@ parser.add_argument('--model', type=str, required=True)
 # Parse the argument
 args = parser.parse_args()
 
-model_select=args.model
-print(model_select)
 
-model_select=
+model_select=args.model
 
 model = {
     "LR":   LogisticRegression(),
