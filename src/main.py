@@ -16,6 +16,17 @@ from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.metrics import classification_report
 import joblib
 from utils import *
+import argparse
+
+# Create the parser
+parser = argparse.ArgumentParser()
+# Add an argument
+parser.add_argument('--model', type=str, required=True)
+# Parse the argument
+args = parser.parse_args()
+
+model_select=args.model
+print(model_select)
 
 model = {
     "LogisticRegression": LogisticRegression()
