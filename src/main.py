@@ -28,7 +28,7 @@ args = parser.parse_args()
 model_select=args.model
 print(model_select)
 
-model_select="DT"
+model_select=
 
 model = {
     "LR":   LogisticRegression(),
