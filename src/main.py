@@ -29,12 +29,12 @@ args = parser.parse_args()
 model_select=args.model
 
 model = {
-    "LR":   LogisticRegression(),
+    "LogisticRegressio":   LogisticRegression(),
     "SVC":  SVC(),
-    "KNN":  KNeighborsClassifier(n_neighbors=3),
-    "DT":   DecisionTreeClassifier(),
-    "RF":   RandomForestClassifier(),
-    "GB":   GradientBoostingClassifier()
+    "KNeighbors":  KNeighborsClassifier(n_neighbors=3),
+    "DecisionTree":   DecisionTreeClassifier(),
+    "RandomForest":   RandomForestClassifier(),
+    "GradientBoost":   GradientBoostingClassifier()
 }
 
 
