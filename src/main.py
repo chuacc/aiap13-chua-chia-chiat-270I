@@ -17,6 +17,15 @@ from sklearn.metrics import classification_report
 import joblib
 from utils import *
 
+model = {
+    "LogisticRegression": LogisticRegression()
+
+# clfs.append(SVC())
+# clfs.append(KNeighborsClassifier(n_neighbors=3))
+# clfs.append(DecisionTreeClassifier())
+# clfs.append(RandomForestClassifier())
+# clfs.append(GradientBoostingClassifier())
+}
 
 
 con = sqlite3.connect("../data/failure.db")
@@ -30,7 +39,7 @@ df = dataclean(df)
 # Transform ordinal features into numerical features
 df= encode(df)
 
-# Split the data into test and train
+# Split the data into 20% test and 80% train
 X = df.drop("Failure",axis=1)
 y = df['Failure']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=123)
@@ -71,7 +80,7 @@ preprocessor = ColumnTransformer(
 
 pipeline = Pipeline(steps = [
                ('preprocessor', preprocessor)
-              ,('clf',LogisticRegression())
+              ,('clf',model['LogisticRegression'])
            ])
 
 
@@ -84,5 +93,7 @@ preds = pipeline.predict(X_test)
 
 print('Prediction Shape :', end=' ')
 print(preds.shape)
-
+print('---------------------------------')
+print('LogisticRegression')
+print('-----------------------------------')
 print(classification_report(y_test, preds))
