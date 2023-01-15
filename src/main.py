@@ -17,7 +17,7 @@ from sklearn.metrics import classification_report
 import joblib
 from utils import *
 
-model_select="DT"
+model_select=
 
 model = {
     "LR":   LogisticRegression(),
