@@ -49,3 +49,27 @@ def dataclean(df):
     df.drop(df[df['Temperature'] > 140].index, inplace = True)
 
     return df
+
+
+# Make dictionaries for ordinal features
+
+usage_map = {
+    "Low":      1,
+    "Medium":   2,
+    "High":     3
+}
+
+
+membership_map = {
+    "Premium":      1,
+    "Normal":   2,
+    "None":     3
+}
+# Transform ordinal features into numerical features
+
+def encode(df):
+    df.loc[:,"Usage"] = df["Usage"].map(usage_map)
+    df.loc[:,"Membership"] = df["Membership"].map(membership_map)
+
+  
+    return df
