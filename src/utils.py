@@ -33,5 +33,15 @@ def dataclean(df):
     # Convert "Temperature" to °C if the "units" is  °F and remove the "units" column
     df.loc[(df.units == "°F"), 'Temperature'] = round((df.Temperature-32)*5/9,1)
     df.drop(columns=["units"], inplace=True)
+
+    # Convert  negative "RPM" to positive and remove the "temp" column
+    df.loc[(df.temp == "Neg"), 'RPM'] = df.RPM * -1
+    df.drop(columns=["temp"], inplace=True)
+
+    # Create a new column "Failure" which has represented by "0" if there are no failures and "1" if it has any one of the 5 failures
+    df["Failure"] = df["Failure A"] | df["Failure B"]| df["Failure C"]| df["Failure D"]
+
+    #Drop unwanted columns
+    df = df.drop(["Car ID", "Color", "Failure A", "Failure B", "Failure C", "Failure D", "Failure E", "Year" ] , axis = 1)
     
     return df
