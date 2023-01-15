@@ -17,14 +17,15 @@ from sklearn.metrics import classification_report
 import joblib
 from utils import *
 
-model = {
-    "LogisticRegression": LogisticRegression()
+model_select="DT"
 
-# clfs.append(SVC())
-# clfs.append(KNeighborsClassifier(n_neighbors=3))
-# clfs.append(DecisionTreeClassifier())
-# clfs.append(RandomForestClassifier())
-# clfs.append(GradientBoostingClassifier())
+model = {
+    "LR":   LogisticRegression(),
+    "SVC":  SVC(),
+    "KNN":  KNeighborsClassifier(n_neighbors=3),
+    "DT":   DecisionTreeClassifier(),
+    "RF":   RandomForestClassifier(),
+    "GB":   GradientBoostingClassifier()
 }
 
 
@@ -80,7 +81,7 @@ preprocessor = ColumnTransformer(
 
 pipeline = Pipeline(steps = [
                ('preprocessor', preprocessor)
-              ,('clf',model['LogisticRegression'])
+              ,('clf',model['LR'])
            ])
 
 
@@ -94,6 +95,6 @@ preds = pipeline.predict(X_test)
 print('Prediction Shape :', end=' ')
 print(preds.shape)
 print('---------------------------------')
-print('LogisticRegression')
+print(model_select)
 print('-----------------------------------')
 print(classification_report(y_test, preds))
