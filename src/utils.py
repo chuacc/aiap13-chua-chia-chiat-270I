@@ -35,6 +35,7 @@ def dataclean(df):
     df.drop(columns=["units"], inplace=True)
 
     # Convert  negative "RPM" to positive and remove the "temp" column
+    df['temp'] = np.where(df['RPM']>= 0, "Pos", "Neg")
     df.loc[(df.temp == "Neg"), 'RPM'] = df.RPM * -1
     df.drop(columns=["temp"], inplace=True)
     
