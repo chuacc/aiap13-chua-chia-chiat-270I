@@ -14,3 +14,5 @@ con.close()
 
 
 df = dataclean(df)
+
+print(df.head)
