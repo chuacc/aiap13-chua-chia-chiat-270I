@@ -1,6 +1,6 @@
 
 import numpy as np
-
+import warnings
 
 
 def dataclean(df):
@@ -68,6 +68,8 @@ membership_map = {
 # Transform ordinal features into numerical features
 
 def encode(df):
+
+    warnings.simplefilter("ignore", category=FutureWarning)
     df.loc[:,"Usage"] = df["Usage"].map(usage_map)
     df.loc[:,"Membership"] = df["Membership"].map(membership_map)
 
