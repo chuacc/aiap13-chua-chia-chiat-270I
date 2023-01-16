@@ -1,3 +1,5 @@
+#!/bin/sh
+
 python ./src/main.py --model RandomForest
 python ./src/main.py --model LogisticRegression
 python ./src/main.py --model SVC
