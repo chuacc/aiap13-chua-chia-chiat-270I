@@ -96,7 +96,7 @@ pipeline = Pipeline(steps = [
 
 pipeline.fit(X_train, y_train)
 
-# Save
+# Save the pipeline for future to be called without fitting
 joblib.dump(pipeline,"pipe.joblib")
 
 preds = pipeline.predict(X_test)
