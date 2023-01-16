@@ -101,7 +101,7 @@ joblib.dump(pipeline,"pipe.joblib")
 
 preds = pipeline.predict(X_test)
 
-print('Prediction Shape :', end=' ')
+# print('Prediction Shape :', end=' ')
 print(preds.shape)
 print('---------------------------------')
 print(model_select)
