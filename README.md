@@ -10,7 +10,7 @@ Name : Chua Chia Chiat<br>
 
 ***Executing the pipeline***<br>
 
-The pipeline can be executed from the main directory using "bash run.sh"
+The pipeline can be executed from the main directory using command "bash run.sh"
 
 ***Pipeline***<br>
 
