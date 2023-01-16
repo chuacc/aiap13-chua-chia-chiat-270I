@@ -29,7 +29,7 @@ args = parser.parse_args()
 model_select=args.model
 
 model = {
-    "LogisticRegressio":   LogisticRegression(),
+    "LogisticRegression":   LogisticRegression(),
     "SVC":  SVC(),
     "KNeighbors":  KNeighborsClassifier(n_neighbors=3),
     "DecisionTree":   DecisionTreeClassifier(),
@@ -55,14 +55,14 @@ y = df['Failure']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=123)
 
 
-print('X_Train Shape :', end=' ')
-print(X_train.shape)
-print('y_Train Shape :', end=' ')
-print(y_train.shape)
-print('X_test Shape :', end=' ')
-print(X_test.shape)
-print('Y_test Shape :', end=' ')
-print(y_test.shape)
+# print('X_Train Shape :', end=' ')
+# print(X_train.shape)
+# print('y_Train Shape :', end=' ')
+# print(y_train.shape)
+# print('X_test Shape :', end=' ')
+# print(X_test.shape)
+# print('Y_test Shape :', end=' ')
+# print(y_test.shape)
 
 # List of numerical columns and categorical columns  
 num_cols = ["Temperature", "RPM", "Usage", "Fuel consumption", "Membership"]
