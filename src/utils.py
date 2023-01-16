@@ -48,6 +48,22 @@ def dataclean(df):
     # Dropped temperature above 140
     df.drop(df[df['Temperature'] > 140].index, inplace = True)
 
+
+    #Remove outliers using Z score , 3 standard deviation
+    num_col = ["Temperature", "RPM", "Fuel consumption"]
+    df2 = df[num_col]
+
+    # Calculate the Z score
+    Z = (df2 - df2.mean())/df2.std()
+    n = len(num_col)
+    Outliers = Z.loc[((Z > -3).sum(axis=1)<n) | ((Z <= 3).sum(axis=1)<n),:]
+    print('Number of rows before discarding outliers = %d' % (df.shape[0]))
+    print('No. of rows to be discarded = %d' %(Outliers.shape[0]))
+    out = Outliers.index
+    df=df.drop(out)
+    df=df.reset_index(drop=True)# Reindex the data frame
+    print('Number of rows after discarding outliers = %d' % (df.shape[0]))
+
     return df
 
 
