@@ -16,7 +16,7 @@ The pipeline can be executed from the main directory using "bash run.sh"
 
 <ol>
     <li>Train data are sent into the pipeline. The train data are transformed into an appropriate format and fit the model</li>
-    <li>Test data are being sent thru the pipeline. The same data transformation process is being applied on the test data. The fitted model makes prediction base on the test data inputs</li>
+    <li>Test data are being sent thru the pipeline. The same data transformation process is being applied on the test data. The fitted model makes prediction base on the test data inputs.</li>
 
 </ol>
 
