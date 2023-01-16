@@ -38,3 +38,10 @@ Models suitable are such as :
 
 Assuming this automotive company is a car leasing company and maintainence of the car is under the responsibility of the company. F1 score, precision and recall are suitable evaluation metrics. A good precision would mean less false positive would help the company to save some cost if the maintanence cost are high as car less prone to failure can be serviced less regularly.
 
+
+***Finding from EDA***<br>
+
+1) The data set is imbalance (10% of cars with failure)
+2) 3 factories ("Bedok, Germany", "Newton, China", "Shang Hai, China") produces car with high failure percentage 
+
+
