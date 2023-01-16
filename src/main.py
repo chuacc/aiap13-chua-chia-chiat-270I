@@ -29,16 +29,16 @@ args = parser.parse_args()
 model_select=args.model
 
 model = {
-    "LR":   LogisticRegression(),
+    "LogisticRegression":   LogisticRegression(),
     "SVC":  SVC(),
-    "KNN":  KNeighborsClassifier(n_neighbors=3),
-    "DT":   DecisionTreeClassifier(),
-    "RF":   RandomForestClassifier(),
-    "GB":   GradientBoostingClassifier()
+    "KNeighbors":  KNeighborsClassifier(n_neighbors=3),
+    "DecisionTree":   DecisionTreeClassifier(),
+    "RandomForest":   RandomForestClassifier(),
+    "GradientBoost":   GradientBoostingClassifier()
 }
 
 
-con = sqlite3.connect("../data/failure.db")
+con = sqlite3.connect("./data/failure.db")
 df = pd.read_sql_query("SELECT * from failure", con)
 con.close()
 
@@ -55,14 +55,14 @@ y = df['Failure']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=123)
 
 
-print('X_Train Shape :', end=' ')
-print(X_train.shape)
-print('y_Train Shape :', end=' ')
-print(y_train.shape)
-print('X_test Shape :', end=' ')
-print(X_test.shape)
-print('Y_test Shape :', end=' ')
-print(y_test.shape)
+# print('X_Train Shape :', end=' ')
+# print(X_train.shape)
+# print('y_Train Shape :', end=' ')
+# print(y_train.shape)
+# print('X_test Shape :', end=' ')
+# print(X_test.shape)
+# print('Y_test Shape :', end=' ')
+# print(y_test.shape)
 
 # List of numerical columns and categorical columns  
 num_cols = ["Temperature", "RPM", "Usage", "Fuel consumption", "Membership"]
@@ -96,12 +96,12 @@ pipeline = Pipeline(steps = [
 
 pipeline.fit(X_train, y_train)
 
-# Save
+# Save the pipeline for future to be called without fitting
 joblib.dump(pipeline,"pipe.joblib")
 
 preds = pipeline.predict(X_test)
 
-print('Prediction Shape :', end=' ')
+# print('Prediction Shape :', end=' ')
 print(preds.shape)
 print('---------------------------------')
 print(model_select)
