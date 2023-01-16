@@ -38,7 +38,7 @@ model = {
 }
 
 
-con = sqlite3.connect("/data/failure.db")
+con = sqlite3.connect("./data/failure.db")
 df = pd.read_sql_query("SELECT * from failure", con)
 con.close()
 
